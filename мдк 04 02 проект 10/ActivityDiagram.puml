@@ -2,30 +2,22 @@
 title ActivityDiagram
 
 start
-:Пользователь входит в приложение;
-if (Новый пользователь?) then (Да)
-  :Регистрация;
-  :Создание первого счета;
-else (Нет)
-  :Авторизация;
-endif
-
-:Открывается главный экран;
+:Open App;
+:Main Table View;
 repeat
-  :Выбор действия;
-  if (Добавить транзакцию?) then (Да)
-    :Ввод суммы;
-    :Выбор категории;
-    :Сохранение транзакции;
-    :Обновление баланса;
-  elseif (Просмотр отчетов?) then (Да)
-    :Выбор периода;
-    :Формирование графиков;
-    :Отображение статистики;
-  elseif (Управление бюджетом?) then (Да)
-    :Установка лимитов;
-    :Отслеживание расходов;
+  :Choose Action;
+  if (Add Record?) then (Yes)
+    :Fill Record Form;
+    :Save to Table;
+  elseif (Edit Record?) then (Yes)
+    :Select Record;
+    :Modify Data;
+    :Update Table;
+  elseif (Filter Data?) then (Yes)
+    :Set Filters;
+    :Apply to Table;
   endif
-repeat while (Продолжить работу?) 
+repeat while (Continue?) 
+:Export Data;
 stop
 @enduml

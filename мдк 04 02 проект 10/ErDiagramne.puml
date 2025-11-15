@@ -6,20 +6,19 @@ entity users {
   --
   username: VARCHAR(50)
   email: VARCHAR(100)
-  password_hash: VARCHAR(255)
-  created_at: TIMESTAMP
+  password: VARCHAR(255)
+  created_at: DATETIME
 }
 
-entity accounts {
-  * account_id: INT <<PK>>
+entity financial_records {
+  * record_id: INT <<PK>>
   * user_id: INT <<FK>>
   --
-  account_name: VARCHAR(50)
-  account_type: VARCHAR(20)
-  initial_balance: DECIMAL(15,2)
-  current_balance: DECIMAL(15,2)
-  currency: VARCHAR(3)
-  created_date: DATE
+  record_date: DATE
+  amount: DECIMAL(15,2)
+  category: VARCHAR(50)
+  description: TEXT
+  type: ENUM('income', 'expense')
 }
 
 entity categories {
@@ -28,38 +27,19 @@ entity categories {
   --
   category_name: VARCHAR(50)
   category_type: ENUM('income', 'expense')
-  color: VARCHAR(7)
-  icon: VARCHAR(30)
 }
 
-entity transactions {
-  * transaction_id: INT <<PK>>
-  * account_id: INT <<FK>>
-  * category_id: INT <<FK>>
-  --
-  amount: DECIMAL(15,2)
-  transaction_date: DATE
-  description: TEXT
-  transaction_type: ENUM('income', 'expense')
-  created_at: TIMESTAMP
-}
-
-entity budgets {
-  * budget_id: INT <<PK>>
+entity table_views {
+  * view_id: INT <<PK>>
   * user_id: INT <<FK>>
-  * category_id: INT <<FK>>
   --
-  budget_amount: DECIMAL(15,2)
-  period: ENUM('daily', 'weekly', 'monthly', 'yearly')
-  start_date: DATE
-  end_date: DATE
+  view_name: VARCHAR(50)
+  filters: TEXT
+  sort_order: VARCHAR(100)
 }
 
-' Relationships
-users ||--o{ accounts : "has"
-users ||--o{ categories : "creates"
-users ||--o{ budgets : "sets"
-accounts ||--o{ transactions : "contains"
-categories ||--o{ transactions : "categorizes"
-categories ||--o{ budgets : "assigned_to"
+users ||--o{ financial_records
+users ||--o{ categories
+users ||--o{ table_views
+categories ||--o{ financial_records
 @enduml

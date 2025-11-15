@@ -2,23 +2,14 @@
 title SequenceDiagram
 
 actor User
-participant "UI" as UI
-participant "TransactionController" as TC
-participant "AccountService" as AS
+participant "TableUI" as UI
+participant "RecordManager" as RM
 participant "Database" as DB
 
-User -> UI: Добавить новую транзакцию
-UI -> TC: createTransaction(amount, category, date)
-TC -> AS: validateAccountBalance(accountId, amount)
-AS -> DB: SELECT balance FROM accounts
-DB --> AS: баланс счета
-AS --> TC: результат проверки
-TC -> DB: INSERT INTO transactions
-DB --> TC: ID новой транзакции
-TC -> AS: updateAccountBalance(accountId, amount)
-AS -> DB: UPDATE accounts SET balance
-DB --> AS: подтверждение
-AS --> TC: обновленный баланс
-TC --> UI: транзакция успешно создана
-UI --> User: отображение результата
+User -> UI: Add New Record
+UI -> RM: createRecord(data)
+RM -> DB: INSERT INTO financial_records
+DB --> RM: recordId
+RM --> UI: success
+UI --> User: Record Added
 @enduml

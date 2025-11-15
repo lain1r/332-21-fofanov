@@ -1,0 +1,46 @@
+ActivityDiagram
+- App opening flow
+- Table view navigation
+- Record operations cycle
+- Data export process
+
+ClassDiagram
+- User class - user management
+- FinancialRecord class - table records
+- Category class - record categorization  
+- TableView class - table display control
+- ExportManager class - data export
+
+ComponentDiagram
+- TableUI - main interface
+- Data Manager - data handling
+- Filter Component - data filtering
+- Export Component - export functions
+- Analytics Component - basic analytics
+- Database - data storage
+
+SequenceDiagram  
+- Add record sequence
+- User to UI interaction
+- Database operations
+- Success feedback
+
+UseCaseDiagram
+- Add Record use case
+- Edit Record use case  
+- Delete Record use case
+- Filter Data use case
+- Sort Table use case
+- Export Data use case
+- View Summary use case
+
+PUML
+- users table - user accounts
+- financial_records table - main data table
+- categories table - income/expense categories
+- table_views table - user view preferences
+- Relationships between tables
+
+All diagrams focus on table-based personal finance tracking
+Simple record management without complex transactions
+Table-oriented data structure and operations

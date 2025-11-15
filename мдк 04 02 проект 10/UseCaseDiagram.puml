@@ -2,18 +2,15 @@
 title UseCaseDiagram
 
 actor User
-actor Admin
 
-rectangle "Управление личными финансами" {
-  usecase "Регистрация" as UC1
-  usecase "Авторизация" as UC2
-  usecase "Управление счетами" as UC3
-  usecase "Добавление транзакций" as UC4
-  usecase "Просмотр отчетов" as UC5
-  usecase "Установка бюджетов" as UC6
-  usecase "Анализ расходов" as UC7
-  usecase "Экспорт данных" as UC8
-  usecase "Управление пользователями" as UC9
+rectangle FinanceTableApp {
+  usecase "Add Record" as UC1
+  usecase "Edit Record" as UC2
+  usecase "Delete Record" as UC3
+  usecase "Filter Data" as UC4
+  usecase "Sort Table" as UC5
+  usecase "Export Data" as UC6
+  usecase "View Summary" as UC7
 }
 
 User --> UC1
@@ -23,12 +20,4 @@ User --> UC4
 User --> UC5
 User --> UC6
 User --> UC7
-User --> UC8
-
-Admin --> UC9
-Admin --> UC5
-
-UC3 .> UC4 : include
-UC5 .> UC7 : include
-UC6 .> UC7 : extend
 @enduml

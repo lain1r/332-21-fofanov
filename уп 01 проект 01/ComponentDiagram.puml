@@ -1,0 +1,27 @@
+@startuml
+title ComponentDiagram
+
+[Authentication Component] as Auth
+[User Management Component] as User
+[Account Management Component] as Account
+[Transaction Processing Component] as Transaction
+[Reporting Component] as Report
+[Budget Management Component] as Budget
+[Database] as DB
+
+Auth --> User
+User --> Account
+Account --> Transaction
+Transaction --> Report
+Transaction --> Budget
+User --> DB
+Account --> DB
+Transaction --> DB
+Report --> DB
+Budget --> DB
+
+note right of Auth
+  Обрабатывает регистрацию
+  и авторизацию пользователей
+end note
+@enduml

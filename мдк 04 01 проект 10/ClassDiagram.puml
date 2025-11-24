@@ -1,0 +1,60 @@
+@startuml
+title ClassDiagram
+
+class User {
+  - userId: int
+  - username: string
+  - email: string
+  - passwordHash: string
+  + register()
+  + login()
+  + updateProfile()
+}
+
+class Account {
+  - accountId: int
+  - userId: int
+  - accountName: string
+  - balance: decimal
+  - currency: string
+  + deposit()
+  + withdraw()
+  + getBalance()
+}
+
+class Transaction {
+  - transactionId: int
+  - accountId: int
+  - categoryId: int
+  - amount: decimal
+  - date: DateTime
+  - description: string
+  + createTransaction()
+  + editTransaction()
+}
+
+class Category {
+  - categoryId: int
+  - name: string
+  - type: string
+  + addCategory()
+  + deleteCategory()
+}
+
+class Budget {
+  - budgetId: int
+  - userId: int
+  - categoryId: int
+  - limitAmount: decimal
+  - period: string
+  + setBudget()
+  + checkBudget()
+}
+
+' Relationships
+User "1" -- "many" Account
+User "1" -- "many" Budget
+Account "1" -- "many" Transaction
+Category "1" -- "many" Transaction
+Category "1" -- "many" Budget
+@enduml

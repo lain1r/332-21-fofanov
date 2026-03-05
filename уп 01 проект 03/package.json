@@ -1,0 +1,10 @@
+{
+  "name": "php-auth-portfolio",
+  "version": "1.0.0",
+  "description": "System for authentication and personal portfolio based on PHP and SQLite",
+  "scripts": {
+    "start": "php -S localhost:8000"
+  },
+  "author": "",
+  "license": "ISC"
+}

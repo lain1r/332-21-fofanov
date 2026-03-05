@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #fff8c4;
+    --ssecond-color: #ffe100;
+    --text-color: #1d1d1d;
+    --stext-color: #493232;
+    --main-color: #8d8d8d;
+    --secsec-color: #ffeb99;
+}
+
+html {
+    font-size: 62,5%;
+    overflow-x: hidden;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: var(--bg-color);
+    color: var(--text-bg-color);
+    place-content: center;
+    align-items: center;
+}
+
+
+.auth {
+    padding: 60px 20px 60px 20px;
+    border: 5px solid var(--text-color);
+    border-radius: 20px;
+    box-shadow:  5px 5px 0 var(--text-color);
+    background-color: var(--main-color);
+    color: var(--text-color);
+    text-align: center;
+}
+.auth a {
+    color: var(--ssecond-color);
+    text-decoration:underline;
+    font-size: 30px;
+}
+
+.auth-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-content input,
+.auth-content button,
+.auth-content select {
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    width: 400px;
+    margin: 10px;
+    border: 3px solid var(--text-color);
+    border-radius: 15px;
+    box-shadow:  5px 5px 0 var(--text-color);
+    background-color: var(--ssecond-color);
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.user_agreement input{
+    width: 20px;
+    height: 20px;
+}
+
+.auth-content input,
+.auth-content select {
+    position: relative;
+    background-color: var(--secsec-color);
+
+}
+
+
+.auth-form {
+    display: none;
+}
+.auth-form.active {
+    display: block;
+}
+
+.auth-content .toggle-password{
+    width: 50px;
+}

@@ -1,0 +1,11 @@
+backend/database.db
+.vscode/
+.idea/
+*.log
+node_modules/
+.DS_Store
+*.tmp
+docx_temp/
+tz.txt
+tz_content.txt
+04 02 - 08 техническое задание.docx
